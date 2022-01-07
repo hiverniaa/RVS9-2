@@ -19,8 +19,9 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 package mypack;
-    typedef enum logic [3: 0] {f0, f1, f2, a0, a1, a2, ai0, ai1, ai2} uState ;
+    typedef enum logic [4: 0] {f0, f1, f2, a0, a1, a2, ai0, ai1, ai2, lw0, lw1, lw2, lw3, sw0, sw1, sw2, sw3, jr0} uState;
     typedef enum {x0, rd, rs1, rs2} RF_reg;
+    typedef enum {n, d, f, b} uinst;
 endpackage
 
 module top_rv(
@@ -35,15 +36,15 @@ module top_rv(
     logic UC_pc_en;
     logic UC_a_en;
     logic UC_b_en;
-    logic UC_ir_en;	
+    logic UC_ir_en;
+    logic UC_wd_en;
     logic UC_rf_wen;
     logic UC_rf_ren;
     logic UC_rf_addr_sel;	
     logic UC_alu_func;
     logic UC_ram_wen;
-    logic UC_ram_ren;
     logic [31:0] instr;
-    logic [16:0] UC_en_sig;
+    logic [18:0] UC_en_sig;
     logic [31:0] databus;
     logic [31:0] rdata;
     
@@ -76,27 +77,29 @@ module top_rv(
     );
     
     RAM RAM(
-        .addr  (databus),
+        .addr  (databus[11:2]),
         .din   (databus),           
         .clk   (clk    ),                           
         .we    (UC_ram_wen),                
-        .regce (UC_ram_ren),                         
+        .regce (1'b1),                         
         .dout  (rdata)         
     );
 
-    assign UC_pc_bus_en        = UC_en_sig[16];
-    assign UC_ALU_bus_en       = UC_en_sig[15];
-    assign UC_immgen_bus_en	   = UC_en_sig[14];
-    assign UC_rf_bus_en        = UC_en_sig[13];
-    assign UC_rd_bus_en        = UC_en_sig[12];
-    assign UC_pc_en            = UC_en_sig[11];
-    assign UC_a_en             = UC_en_sig[10];
-    assign UC_b_en             = UC_en_sig[9];
-    assign UC_ir_en	           = UC_en_sig[8];
-    assign UC_rf_wen           = UC_en_sig[7];
-    assign UC_rf_ren           = UC_en_sig[6];
-    assign UC_rf_addr_sel      = UC_en_sig[5:1];
-    assign UC_alu_func         = UC_en_sig[0];
+    assign UC_pc_bus_en        = UC_en_sig[18];
+    assign UC_ALU_bus_en       = UC_en_sig[17];
+    assign UC_immgen_bus_en	   = UC_en_sig[16];
+    assign UC_rf_bus_en        = UC_en_sig[15];
+    assign UC_rd_bus_en        = UC_en_sig[14];
+    assign UC_pc_en            = UC_en_sig[13];
+    assign UC_a_en             = UC_en_sig[12];
+    assign UC_b_en             = UC_en_sig[11];
+    assign UC_ir_en	           = UC_en_sig[10];
+    assign UC_wd_en	           = UC_en_sig[9];
+    assign UC_rf_wen           = UC_en_sig[8];
+    assign UC_rf_ren           = UC_en_sig[7];
+    assign UC_rf_addr_sel      = UC_en_sig[6:2];
+    assign UC_alu_func         = UC_en_sig[1];
+    assign UC_ram_wen	       = UC_en_sig[0];
 
     
 //    always_ff @(posedge clk) begin
