@@ -3,7 +3,6 @@
 
 module UT(
     input clk,
-    inout [31 : 0] databus,
     input sel_alu_func,
     input ir_en,
     input immgen_bus_en,
@@ -16,6 +15,9 @@ module UT(
     input rf_ren,
     input rf_bus_en,
     input rf_addr_sel,
+    input rd_bus_en,
+    input [31:0] rd_data,
+    output [31 : 0] databus,
     output [31:0] instr,
     output ALU_carry
     );
@@ -28,7 +30,7 @@ module UT(
     logic [31 : 0] ALUout_bus;
     logic [31 : 0] bus_ImmGen;
     logic [31 : 0] ImmGen_bus;
-    logic [31 : 0] PC;
+    logic [31 : 0] PC = 0;
     logic [3 : 0] RF_addr;
     
     
@@ -87,7 +89,10 @@ module UT(
         end 
         else if (rf_bus_en == 1) begin
             data_bus <= RF_bus;
-        end   
+        end
+        else if (rd_bus_en == 1) begin
+            data_bus <= rd_data;
+        end
     end
     
     assign databus = data_bus;

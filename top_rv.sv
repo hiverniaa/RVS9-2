@@ -31,6 +31,7 @@ module top_rv(
     logic UC_ALU_bus_en;
     logic UC_immgen_bus_en;	
     logic UC_rf_bus_en;
+    logic UC_rd_bus_en;
     logic UC_pc_en;
     logic UC_a_en;
     logic UC_b_en;
@@ -42,11 +43,11 @@ module top_rv(
     logic UC_ram_wen;
     logic UC_ram_ren;
     logic [31:0] instr;
-    logic [15:0] UC_en_sig;
+    logic [16:0] UC_en_sig;
     logic [31:0] databus;
+    logic [31:0] rdata;
     
     UT UT(.clk(clk),
-    .databus(databus),
     .sel_alu_func(UC_alu_func),
     .ir_en(UC_ir_en),
     .immgen_bus_en(UC_immgen_bus_en),
@@ -59,6 +60,9 @@ module top_rv(
     .rf_ren(UC_rf_ren),
     .rf_bus_en(UC_rf_bus_en),
     .rf_addr_sel(UC_rf_addr_sel),
+    .rd_bus_en(UC_rd_bus_en),
+    .rd_data(rdta),
+    .databus(databus),
     .instr(instr),
     .ALU_carry()
     );
@@ -77,13 +81,14 @@ module top_rv(
         .clk   (clk    ),                           
         .we    (UC_ram_wen),                
         .regce (UC_ram_ren),                         
-        .dout  (databus)         
+        .dout  (rdata)         
     );
 
-    assign UC_pc_bus_en        = UC_en_sig[15];
-    assign UC_ALU_bus_en       = UC_en_sig[14];
-    assign UC_immgen_bus_en	   = UC_en_sig[13];
-    assign UC_rf_bus_en        = UC_en_sig[12];
+    assign UC_pc_bus_en        = UC_en_sig[16];
+    assign UC_ALU_bus_en       = UC_en_sig[15];
+    assign UC_immgen_bus_en	   = UC_en_sig[14];
+    assign UC_rf_bus_en        = UC_en_sig[13];
+    assign UC_rd_bus_en        = UC_en_sig[12];
     assign UC_pc_en            = UC_en_sig[11];
     assign UC_a_en             = UC_en_sig[10];
     assign UC_b_en             = UC_en_sig[9];

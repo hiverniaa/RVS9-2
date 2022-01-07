@@ -35,6 +35,10 @@ input clk,
         if (rf_wen == 0) begin
             if (addr == 0)
                 data_out <= 32'h0;
+            else if ( addr == 1 )
+                data_out <= 32'h5;
+            else if (addr == 2)
+                data_out <= 32'h4;
             else
                 data_out <= RF_data[addr];
         end

@@ -21,8 +21,8 @@ module RAM #(
   input  logic regce,                         // Output register enable
   output logic [RAM_WIDTH-1:0] dout                   // RAM output data
 );
-  reg [RAM_WIDTH-1:0] ram [RAM_DEPTH-1:0];
-  reg [RAM_WIDTH-1:0] data = {RAM_WIDTH{1'b0}};
+  logic [RAM_WIDTH-1:0] ram [RAM_DEPTH-1:0];
+  logic [RAM_WIDTH-1:0] data = {RAM_WIDTH{1'b0}};
 
   // The following code either initializes the memory values to a specified file or to all zeros to match hardware
   generate
@@ -49,13 +49,13 @@ module RAM #(
     if (RAM_PERFORMANCE == "LOW_LATENCY") begin: no_output_register
 
       // The following is a 1 clock cycle read latency at the cost of a longer clock-to-out timing
-       assign dout = data;
+       assign dout = ram[addr];
 
     end else begin: output_register
 
       // The following is a 2 clock cycle read latency with improve clock-to-out timing
 
-      reg [RAM_WIDTH-1:0] douta_reg = {RAM_WIDTH{1'b0}};
+      logic [RAM_WIDTH-1:0] douta_reg = {RAM_WIDTH{1'b0}};
 
       always @(posedge clk)
         //if (rst)
