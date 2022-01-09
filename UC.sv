@@ -23,15 +23,18 @@ module UC(
     always_ff @(posedge(clk))
     begin
         if (rst) begin
-            uPC = mypack::f0;
+            uPC = mypack::init;
         end
         else begin
-            case(next)
-                mypack::n : uPC = uPC.next();
-                mypack::d : uPC = uPCd;
-                mypack::f : uPC = uPC.first();
-                default : uPC = uPC.first();
-            endcase
+            if (uPC == mypack::init)
+                uPC = mypack::f0;
+            else
+                case(next)
+                    mypack::n : uPC = uPC.next();
+                    mypack::d : uPC = uPCd;
+                    mypack::f : uPC = uPC.first();
+                    default : uPC = uPC.first();
+                endcase
         end
     end
     

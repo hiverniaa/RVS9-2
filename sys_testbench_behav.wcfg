@@ -12,201 +12,30 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="597.026 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,200.595 ns"></ZoomEndTime>
-      <Cursor1Time time="1,100.000 ns"></Cursor1Time>
+      <ZoomStartTime time="84.240 ns"></ZoomStartTime>
+      <ZoomEndTime time="167.141 ns"></ZoomEndTime>
+      <Cursor1Time time="123.040 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="189"></NameColumnWidth>
-      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+      <ValueColumnWidth column_width="112"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="60" />
+   <WVObjectSize size="26" />
    <wvobject type="logic" fp_name="/sys_testbench/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="divider6" type="divider">
-      <obj_property name="label">UT</obj_property>
+   <wvobject type="logic" fp_name="/sys_testbench/rst">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sys_testbench/myDUT/UC/ControlStore/uPC">
+      <obj_property name="ElementShortName">uPC[5:0]</obj_property>
+      <obj_property name="ObjectShortName">uPC[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider228" type="divider">
+      <obj_property name="label">Signaux de controle</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="BkColor">#FF0000</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/ALU_bus_en">
-      <obj_property name="ElementShortName">ALU_bus_en</obj_property>
-      <obj_property name="ObjectShortName">ALU_bus_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/ALU_carry">
-      <obj_property name="ElementShortName">ALU_carry</obj_property>
-      <obj_property name="ObjectShortName">ALU_carry</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/ALUout_bus">
-      <obj_property name="ElementShortName">ALUout_bus[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ALUout_bus[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/ImmGen_bus">
-      <obj_property name="ElementShortName">ImmGen_bus[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ImmGen_bus[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/PC">
-      <obj_property name="ElementShortName">PC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/RF_addr">
-      <obj_property name="ElementShortName">RF_addr[3:0]</obj_property>
-      <obj_property name="ObjectShortName">RF_addr[3:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/RF_bus">
-      <obj_property name="ElementShortName">RF_bus[31:0]</obj_property>
-      <obj_property name="ObjectShortName">RF_bus[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/a_en">
-      <obj_property name="ElementShortName">a_en</obj_property>
-      <obj_property name="ObjectShortName">a_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/b_en">
-      <obj_property name="ElementShortName">b_en</obj_property>
-      <obj_property name="ObjectShortName">b_en</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/bus_ALUopA">
-      <obj_property name="ElementShortName">bus_ALUopA[31:0]</obj_property>
-      <obj_property name="ObjectShortName">bus_ALUopA[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/bus_ALUopB">
-      <obj_property name="ElementShortName">bus_ALUopB[31:0]</obj_property>
-      <obj_property name="ObjectShortName">bus_ALUopB[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/bus_ImmGen">
-      <obj_property name="ElementShortName">bus_ImmGen[31:0]</obj_property>
-      <obj_property name="ObjectShortName">bus_ImmGen[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/bus_RF">
-      <obj_property name="ElementShortName">bus_RF[31:0]</obj_property>
-      <obj_property name="ObjectShortName">bus_RF[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/data_bus">
-      <obj_property name="ElementShortName">data_bus[31:0]</obj_property>
-      <obj_property name="ObjectShortName">data_bus[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/databus">
-      <obj_property name="ElementShortName">databus[31:0]</obj_property>
-      <obj_property name="ObjectShortName">databus[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/immgen_bus_en">
-      <obj_property name="ElementShortName">immgen_bus_en</obj_property>
-      <obj_property name="ObjectShortName">immgen_bus_en</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/instr">
-      <obj_property name="ElementShortName">instr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">instr[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/ir_en">
-      <obj_property name="ElementShortName">ir_en</obj_property>
-      <obj_property name="ObjectShortName">ir_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/pc_bus_en">
-      <obj_property name="ElementShortName">pc_bus_en</obj_property>
-      <obj_property name="ObjectShortName">pc_bus_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="divider7" type="divider">
-      <obj_property name="label">UC</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="BkColor">#0000FF</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/pc_en">
-      <obj_property name="ElementShortName">pc_en</obj_property>
-      <obj_property name="ObjectShortName">pc_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/rd_bus_en">
-      <obj_property name="ElementShortName">rd_bus_en</obj_property>
-      <obj_property name="ObjectShortName">rd_bus_en</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/rd_data">
-      <obj_property name="ElementShortName">rd_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">rd_data[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/rf_addr_sel">
-      <obj_property name="ElementShortName">rf_addr_sel[4:0]</obj_property>
-      <obj_property name="ObjectShortName">rf_addr_sel[4:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/rf_bus_en">
-      <obj_property name="ElementShortName">rf_bus_en</obj_property>
-      <obj_property name="ObjectShortName">rf_bus_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/rf_ren">
-      <obj_property name="ElementShortName">rf_ren</obj_property>
-      <obj_property name="ObjectShortName">rf_ren</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/rf_wen">
-      <obj_property name="ElementShortName">rf_wen</obj_property>
-      <obj_property name="ObjectShortName">rf_wen</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UT/sel_alu_func">
-      <obj_property name="ElementShortName">sel_alu_func</obj_property>
-      <obj_property name="ObjectShortName">sel_alu_func</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ALU_carry">
-      <obj_property name="ElementShortName">ALU_carry</obj_property>
-      <obj_property name="ObjectShortName">ALU_carry</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/clk">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UC/en_sig">
-      <obj_property name="ElementShortName">en_sig[18:0]</obj_property>
-      <obj_property name="ObjectShortName">en_sig[18:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UC/next">
-      <obj_property name="ElementShortName">next[31:0]</obj_property>
-      <obj_property name="ObjectShortName">next[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UC/opcode">
-      <obj_property name="ElementShortName">opcode[6:0]</obj_property>
-      <obj_property name="ObjectShortName">opcode[6:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UC/r">
-      <obj_property name="ElementShortName">r[14:0]</obj_property>
-      <obj_property name="ObjectShortName">r[14:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UC/uPC">
-      <obj_property name="ElementShortName">uPC[4:0]</obj_property>
-      <obj_property name="ObjectShortName">uPC[4:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UC/uPC1">
-      <obj_property name="ElementShortName">uPC1[4:0]</obj_property>
-      <obj_property name="ObjectShortName">uPC1[4:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/UC/uPCd">
-      <obj_property name="ElementShortName">uPCd[4:0]</obj_property>
-      <obj_property name="ObjectShortName">uPCd[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="divider421" type="divider">
-      <obj_property name="label">ControlStore</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/a_en">
-      <obj_property name="ElementShortName">a_en</obj_property>
-      <obj_property name="ObjectShortName">a_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/alu_func">
-      <obj_property name="ElementShortName">alu_func</obj_property>
-      <obj_property name="ObjectShortName">alu_func</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/b_en">
-      <obj_property name="ElementShortName">b_en</obj_property>
-      <obj_property name="ObjectShortName">b_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/immgen_bus_en">
-      <obj_property name="ElementShortName">immgen_bus_en</obj_property>
-      <obj_property name="ObjectShortName">immgen_bus_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/ir_en">
-      <obj_property name="ElementShortName">ir_en</obj_property>
-      <obj_property name="ObjectShortName">ir_en</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/pc_bus_en">
       <obj_property name="ElementShortName">pc_bus_en</obj_property>
@@ -216,53 +45,89 @@
       <obj_property name="ElementShortName">ALU_bus_en</obj_property>
       <obj_property name="ObjectShortName">ALU_bus_en</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/ram_wen">
-      <obj_property name="ElementShortName">ram_wen</obj_property>
-      <obj_property name="ObjectShortName">ram_wen</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/rd_bus_en">
-      <obj_property name="ElementShortName">rd_bus_en</obj_property>
-      <obj_property name="ObjectShortName">rd_bus_en</obj_property>
+   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/immgen_bus_en">
+      <obj_property name="ElementShortName">immgen_bus_en</obj_property>
+      <obj_property name="ObjectShortName">immgen_bus_en</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/rf_bus_en">
       <obj_property name="ElementShortName">rf_bus_en</obj_property>
       <obj_property name="ObjectShortName">rf_bus_en</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/rf_ren">
-      <obj_property name="ElementShortName">rf_ren</obj_property>
-      <obj_property name="ObjectShortName">rf_ren</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/rf_wen">
-      <obj_property name="ElementShortName">rf_wen</obj_property>
-      <obj_property name="ObjectShortName">rf_wen</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/wd_en">
-      <obj_property name="ElementShortName">wd_en</obj_property>
-      <obj_property name="ObjectShortName">wd_en</obj_property>
+   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/rd_bus_en">
+      <obj_property name="ElementShortName">rd_bus_en</obj_property>
+      <obj_property name="ObjectShortName">rd_bus_en</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/pc_en">
       <obj_property name="ElementShortName">pc_en</obj_property>
       <obj_property name="ObjectShortName">pc_en</obj_property>
    </wvobject>
-   <wvobject fp_name="divider109" type="divider">
+   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/a_en">
+      <obj_property name="ElementShortName">a_en</obj_property>
+      <obj_property name="ObjectShortName">a_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/b_en">
+      <obj_property name="ElementShortName">b_en</obj_property>
+      <obj_property name="ObjectShortName">b_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/ir_en">
+      <obj_property name="ElementShortName">ir_en</obj_property>
+      <obj_property name="ObjectShortName">ir_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/wd_en">
+      <obj_property name="ElementShortName">wd_en</obj_property>
+      <obj_property name="ObjectShortName">wd_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/rf_wen">
+      <obj_property name="ElementShortName">rf_wen</obj_property>
+      <obj_property name="ObjectShortName">rf_wen</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/rf_ren">
+      <obj_property name="ElementShortName">rf_ren</obj_property>
+      <obj_property name="ObjectShortName">rf_ren</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sys_testbench/myDUT/UC/ControlStore/rf_addr_sel">
+      <obj_property name="ElementShortName">rf_addr_sel[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rf_addr_sel[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/alu_func">
+      <obj_property name="ElementShortName">alu_func</obj_property>
+      <obj_property name="ObjectShortName">alu_func</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sys_testbench/myDUT/UC/ControlStore/ram_wen">
+      <obj_property name="ElementShortName">ram_wen</obj_property>
+      <obj_property name="ObjectShortName">ram_wen</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider232" type="divider">
+      <obj_property name="label">Operandes ALU</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/bus_ALUopA">
+      <obj_property name="ElementShortName">bus_ALUopA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_ALUopA[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sys_testbench/myDUT/UT/bus_ALUopB">
+      <obj_property name="ElementShortName">bus_ALUopB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">bus_ALUopB[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider235" type="divider">
       <obj_property name="label">RAM</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="BkColor">#00FF00</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/sys_testbench/myDUT/RAM/addr">
       <obj_property name="ElementShortName">addr[9:0]</obj_property>
       <obj_property name="ObjectShortName">addr[9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/RAM/din">
-      <obj_property name="ElementShortName">din[31:0]</obj_property>
-      <obj_property name="ObjectShortName">din[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/sys_testbench/myDUT/RAM/dout">
-      <obj_property name="ElementShortName">dout[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dout[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/sys_testbench/myDUT/RAM/data">
       <obj_property name="ElementShortName">data[31:0]</obj_property>
       <obj_property name="ObjectShortName">data[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sys_testbench/myDUT/rdata">
+      <obj_property name="ElementShortName">rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>

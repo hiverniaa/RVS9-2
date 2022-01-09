@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module ControlStore(
-    input logic [4:0] uPC,
+    input mypack::uState uPC,
     input logic [14:0] r,
     output logic [18:0] en,
     // output logic [1:0] next
@@ -28,13 +28,12 @@ module ControlStore(
     logic alu_func;
     logic ram_wen;
 
-    //assign uPCi = uPC;
     assign en = {pc_bus_en, ALU_bus_en,	immgen_bus_en, rf_bus_en, rd_bus_en, pc_en,	a_en, b_en,	ir_en, wd_en, rf_wen, rf_ren, rf_addr_sel, alu_func, ram_wen};
 
     always_comb
     begin
         case(uPC)
-            5'h0 :  begin // F0
+            mypack::f0 :  begin // F0
                         pc_bus_en       = 1;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;
@@ -53,7 +52,7 @@ module ControlStore(
                         
                         next = mypack::n;
                     end
-            5'h1 :  begin // F1
+            mypack::f1 :  begin // F1
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;
@@ -72,7 +71,7 @@ module ControlStore(
                         
                         next =mypack::n;
                     end
-            5'h2 :  begin // F2
+            mypack::f2 :  begin // F2
                         pc_bus_en       = 0;
                         ALU_bus_en      = 1;
                         immgen_bus_en   = 0;
@@ -91,7 +90,7 @@ module ControlStore(
 
                         next = mypack::d;
                     end
-            5'h3 :  begin // A0
+            mypack::a0 :  begin // A0
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;
@@ -110,7 +109,7 @@ module ControlStore(
 
                         next =mypack::n;
                     end
-            5'h4 :  begin // A1
+            mypack::a1 :  begin // A1
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;
@@ -129,7 +128,7 @@ module ControlStore(
 
                         next =mypack::n;
                     end
-            5'h5 :  begin // A2
+            mypack::a2 :  begin // A2
                         pc_bus_en       = 0;
                         ALU_bus_en      = 1;
                         immgen_bus_en   = 0;
@@ -148,7 +147,7 @@ module ControlStore(
 
                         next = mypack::f;
                     end
-            5'h6 :  begin // AI0
+            mypack::ai0 :  begin // AI0
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;
@@ -167,7 +166,7 @@ module ControlStore(
 
                         next =mypack::n;
                     end
-            5'h7 :  begin // AI1
+            mypack::ai1 :  begin // AI1
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 1;
@@ -186,7 +185,7 @@ module ControlStore(
 
                         next =mypack::n;
                     end
-            5'h8 :  begin // AI2
+            mypack::ai2 :  begin // AI2
                         pc_bus_en       = 0;
                         ALU_bus_en      = 1;
                         immgen_bus_en   = 0;
@@ -205,7 +204,7 @@ module ControlStore(
 
                         next = mypack::f;
                     end
-            5'h9 :  begin // L0
+            mypack::lw0 :  begin // L0
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;
@@ -224,7 +223,7 @@ module ControlStore(
 
                         next =mypack::n;
                     end
-            5'ha :  begin // L1
+            mypack::lw1 :  begin // L1
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 1;
@@ -243,7 +242,7 @@ module ControlStore(
 
                         next =mypack::n;
                     end
-            5'hb :  begin // L2
+            mypack::lw2 :  begin // L2
                         pc_bus_en       = 0;
                         ALU_bus_en      = 1;
                         immgen_bus_en   = 0;
@@ -262,7 +261,7 @@ module ControlStore(
 
                         next =mypack::n;
                     end
-            5'hc :  begin // L3
+            mypack::lw3 :  begin // L3
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;
@@ -281,7 +280,7 @@ module ControlStore(
 
                         next = mypack::f;
                     end
-            5'hd :  begin // S0
+            mypack::sw0 :  begin // S0
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;
@@ -300,7 +299,7 @@ module ControlStore(
 
                         next =mypack::n;
                     end
-            5'he :  begin // S1
+            mypack::sw1 :  begin // S1
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;
@@ -319,7 +318,7 @@ module ControlStore(
 
                         next =mypack::n;
                     end
-            5'hf :  begin // S2
+            mypack::sw2 :  begin // S2
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 1;
@@ -338,7 +337,7 @@ module ControlStore(
 
                         next =mypack::n;
                     end
-            5'h10:  begin // S3
+            mypack::sw3 :  begin // S3
                         pc_bus_en       = 0;
                         ALU_bus_en      = 1;
                         immgen_bus_en   = 0;
@@ -357,7 +356,7 @@ module ControlStore(
 
                         next = mypack::f;
                     end
-            5'h11:  begin // JR0
+            mypack::jr0 :  begin // JR0
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;

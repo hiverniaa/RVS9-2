@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 package mypack;
-    typedef enum logic [4: 0] {f0, f1, f2, a0, a1, a2, ai0, ai1, ai2, lw0, lw1, lw2, lw3, sw0, sw1, sw2, sw3, jr0} uState;
+    typedef enum logic [5: 0] {init, f0, f1, f2, a0, a1, a2, ai0, ai1, ai2, lw0, lw1, lw2, lw3, sw0, sw1, sw2, sw3, jr0} uState;
     typedef enum {x0, rd, rs1, rs2} RF_reg;
     typedef enum {n, d, f, b} uinst;
 endpackage
@@ -64,7 +64,7 @@ module top_rv(
     .rf_bus_en(UC_rf_bus_en),
     .rf_addr_sel(UC_rf_addr_sel),
     .rd_bus_en(UC_rd_bus_en),
-    .rd_data(rdta),
+    .rd_data(rdata),
     .databus(databus),
     .instr(instr),
     .ALU_carry()
@@ -79,6 +79,15 @@ module top_rv(
     .ALU_carry  (           )
     );
     
+    logic [9:0] memreqaddr;
+    
+    always_ff @(posedge(clk)) begin
+        if (rst)
+            memreqaddr <= 0;
+        else
+            memreqaddr <= databus;
+    end
+    
     RAM RAM(
         .addr  (databus[11:2]),
         .din   (databus),           
@@ -87,6 +96,18 @@ module top_rv(
         .regce (1'b1),                         
         .dout  (rdata)         
     );
+
+//    xilinx_simple_dual_port_1_clock_ram RAM2(
+//      .addra (databus[11:2]), // Write address bus, width determined from RAM_DEPTH
+//      .addrb(databus[11:2]), // Read address bus, width determined from RAM_DEPTH
+//      .dina(databus),          // RAM input data
+//      .clka(clk),                          // Clock
+//      .wea(UC_ram_wen),                           // Write enable
+//      .enb(1'b1),                           // Read Enable, for additional power savings, disable when not in use
+//      .rstb(1'b0),                          // Output reset (does not affect memory contents)
+//      .regceb(UC_rd_bus_en),                        // Output register enable
+//      .doutb(rdata)         // RAM output data
+//    );
 
     assign UC_pc_bus_en        = UC_en_sig[18];
     assign UC_ALU_bus_en       = UC_en_sig[17];

@@ -10,7 +10,7 @@ module RAM #(
   parameter RAM_WIDTH = 32,                  // Specify RAM data width
   parameter RAM_DEPTH = 1024,                  // Specify RAM depth (number of entries)
   parameter RAM_PERFORMANCE = "LOW_LATENCY", // Select "HIGH_PERFORMANCE" or "LOW_LATENCY" 
-  parameter INIT_FILE = "/home/lpajot/Documents/ENSEIRB/S9/Projet_RISCV/project_2/project_2.srcs/sources_1/new/Test_mem.mem"                       // Specify name/location of RAM initialization file if using one (leave blank if not)
+  parameter INIT_FILE = "Test_mem.txt"                       // Specify name/location of RAM initialization file if using one (leave blank if not)
 )(
   input  logic [clogb2(RAM_DEPTH-1)-1:0] addr,  // Address bus, width determined from RAM_DEPTH
   input  logic [RAM_WIDTH-1:0] din,           // RAM input data

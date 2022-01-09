@@ -17,6 +17,6 @@ module sys_testbench(
         rst <= 1;
         #100 rst <= 0;
         
-        #1000 $finish;
+        #300 $finish;
    end 
 endmodule
