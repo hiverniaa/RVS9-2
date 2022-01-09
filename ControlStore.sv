@@ -58,7 +58,7 @@ module ControlStore(
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;
                         rf_bus_en       = 0;
-                        rd_bus_en       = 0;
+                        rd_bus_en       = 1;
                         pc_en           = 0;
                         a_en            = 0;
                         b_en            = 0;

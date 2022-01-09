@@ -3,6 +3,7 @@
 
 module UT(
     input clk,
+    input rst,
     input sel_alu_func,
     input ir_en,
     input immgen_bus_en,
@@ -14,7 +15,7 @@ module UT(
     input rf_wen,
     input rf_ren,
     input rf_bus_en,
-    input rf_addr_sel,
+    input [4:0] rf_addr_sel,
     input rd_bus_en,
     input [31:0] rd_data,
     output [31 : 0] databus,
@@ -60,7 +61,7 @@ module UT(
         if (ir_en == 1) begin
             bus_ImmGen <= data_bus;
         end
-        if (a_en == 1) begin
+        else if (a_en == 1) begin
             bus_ALUopA <= data_bus;
         end
         if (b_en == 1) begin
@@ -78,21 +79,16 @@ module UT(
         //----------------------------------
         //Affectation des sorties sur le bus
         //----------------------------------
-        if (immgen_bus_en == 1) begin
+        if (immgen_bus_en == 1)
             data_bus <= ImmGen_bus;
-        end
-        else if (ALU_bus_en == 1) begin
+        else if (ALU_bus_en == 1)
             data_bus <= ALUout_bus;
-        end
-        else if (pc_bus_en == 1) begin
+        else if (pc_bus_en == 1)
             data_bus <= PC;
-        end 
-        else if (rf_bus_en == 1) begin
+        else if (rf_bus_en == 1)
             data_bus <= RF_bus;
-        end
-        else if (rd_bus_en == 1) begin
+        else if (rd_bus_en == 1)
             data_bus <= rd_data;
-        end
     end
     
     assign databus = data_bus;

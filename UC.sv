@@ -3,6 +3,7 @@
 
 module UC(
     input clk,
+    input rst,
     input logic [6:0] opcode,
     input logic [14:0] r,
     output [18:0] en_sig,
@@ -19,19 +20,24 @@ module UC(
     mypack::uinst next;
     
     
-    always_comb
+    always_ff @(posedge(clk))
     begin
-        case(next)
-            mypack::n : uPC = uPC.next();
-            mypack::d : uPC = uPCd;
-            mypack::f : uPC = uPC.first();
-            default : uPC = uPC.first();
-        endcase
+        if (rst) begin
+            uPC = mypack::f0;
+        end
+        else begin
+            case(next)
+                mypack::n : uPC = uPC.next();
+                mypack::d : uPC = uPCd;
+                mypack::f : uPC = uPC.first();
+                default : uPC = uPC.first();
+            endcase
+        end
     end
     
     
     decod decod(.opcode(opcode),
-                .uPCd  (uPCd_b  ));
+                .uPCd  (uPCd  ));
     
     ControlStore ControlStore(.uPC (uPC   ),
                               .r   (r     ),

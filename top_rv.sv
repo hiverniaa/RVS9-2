@@ -25,7 +25,8 @@ package mypack;
 endpackage
 
 module top_rv(
-    input clk
+    input clk,
+    input rst
     );    
         
     logic UC_pc_bus_en;
@@ -40,7 +41,7 @@ module top_rv(
     logic UC_wd_en;
     logic UC_rf_wen;
     logic UC_rf_ren;
-    logic UC_rf_addr_sel;	
+    logic [4:0] UC_rf_addr_sel;	
     logic UC_alu_func;
     logic UC_ram_wen;
     logic [31:0] instr;
@@ -49,6 +50,7 @@ module top_rv(
     logic [31:0] rdata;
     
     UT UT(.clk(clk),
+    .rst(rst),
     .sel_alu_func(UC_alu_func),
     .ir_en(UC_ir_en),
     .immgen_bus_en(UC_immgen_bus_en),
@@ -70,6 +72,7 @@ module top_rv(
     
     UC UC(
     .clk        (clk        ),
+    .rst        (rst        ),
     .opcode     (instr[6:0] ),
     .r          ({instr[11:7], instr[24:20], instr[19:15]}), // {rd, rs2, rs1}
     .en_sig     (UC_en_sig  ),
