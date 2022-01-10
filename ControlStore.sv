@@ -265,7 +265,7 @@ module ControlStore(
                         pc_bus_en       = 0;
                         ALU_bus_en      = 0;
                         immgen_bus_en   = 0;
-                        rf_bus_en       = 1;
+                        rf_bus_en       = 0;
                         rd_bus_en       = 1;
                         pc_en           = 0;
                         a_en            = 0;

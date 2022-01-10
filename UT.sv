@@ -70,9 +70,9 @@ module UT(
         if (pc_en == 1) begin
             PC <= data_bus;
         end
-        if (rf_bus_en == 1) begin
-            bus_RF <= data_bus;
-        end          
+//        if (rf_bus_en == 1) begin
+//            bus_RF <= data_bus;
+//        end          
     end
     
     always_comb begin
