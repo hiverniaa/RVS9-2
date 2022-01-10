@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 package mypack;
-    typedef enum logic [5: 0] {init, f0, f1, f2, a0, a1, a2, ai0, ai1, ai2, lw0, lw1, lw2, lw3, sw0, sw1, sw2, sw3, jr0} uState;
+    typedef enum logic [5: 0] {f0, f1, f2, a0, a1, a2, ai0, ai1, ai2, lw0, lw1, lw2, lw3, sw0, sw1, sw2, sw3, jr0, init} uState;
     typedef enum {x0, rd, rs1, rs2} RF_reg;
     typedef enum {n, d, f, b} uinst;
 endpackage
@@ -48,6 +48,7 @@ module top_rv(
     logic [18:0] UC_en_sig;
     logic [31:0] databus;
     logic [31:0] rdata;
+    logic [31:0] WD;
     
     UT UT(.clk(clk),
     .rst(rst),
@@ -87,10 +88,17 @@ module top_rv(
         else
             memreqaddr <= databus;
     end
+ 
+    always_ff @(posedge(clk)) begin
+        if (rst)
+            WD <= 0;
+        else if (UC_wd_en)
+            WD <= databus;
+    end 
     
     RAM RAM(
         .addr  (databus[11:2]),
-        .din   (databus),           
+        .din   (WD),           
         .clk   (clk    ),                           
         .we    (UC_ram_wen),                
         .regce (1'b1),                         

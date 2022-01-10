@@ -49,7 +49,7 @@ module RAM #(
     if (RAM_PERFORMANCE == "LOW_LATENCY") begin: no_output_register
 
       // The following is a 1 clock cycle read latency at the cost of a longer clock-to-out timing
-       assign dout = ram[addr];
+       assign dout = data;
 
     end else begin: output_register
 

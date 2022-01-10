@@ -29,16 +29,17 @@ input clk,
     input [1:0] addr
     );
     
-    logic [3:0][31:0] RF_data = '{default: 32'h0};
+    logic [3:0][31:0] RF_data = {32'h0, 32'h5, 32'h6, 32'h0};
     
-    always_ff @(posedge clk) begin
+//    always_ff @(posedge clk) begin
+    always_comb begin
         if (rf_wen == 0) begin
             if (addr == 0)
                 data_out <= 32'h0;
-            else if ( addr == 1 )
-                data_out <= 32'h5;
-            else if (addr == 2)
-                data_out <= 32'h4;
+//            else if ( addr == 1 )
+//                data_out <= 32'h5;
+//            else if (addr == 2)
+//                data_out <= 32'h6;
             else
                 data_out <= RF_data[addr];
         end
