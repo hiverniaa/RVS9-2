@@ -41,7 +41,7 @@ module UT(
                .res(ALUout_bus),
                .carry(ALU_carry));
                
-   ImmGen ImmGen(.immIn(bus_ImmGen[31:20]),
+   ImmGen ImmGen(.immIn(bus_ImmGen),
                  .immOut(ImmGen_bus));
                  
    assign instr = bus_ImmGen;
