@@ -145,6 +145,25 @@ module ControlStore(
                         alu_func        = 1;
                         ram_wen         = 0;
 
+                        next = mypack::n;
+                    end
+            mypack::a3 :  begin // A3
+                        pc_bus_en       = 0;
+                        ALU_bus_en      = 0;
+                        immgen_bus_en   = 0;
+                        rf_bus_en       = 1;
+                        rd_bus_en       = 0;
+                        pc_en           = 0;
+                        a_en            = 1;
+                        b_en            = 0;
+                        ir_en           = 0;
+                        wd_en           = 0;
+                        rf_wen          = 0;
+                        rf_ren          = 1;
+                        rf_addr_sel     = r[4:0];
+                        alu_func        = 0;
+                        ram_wen         = 0;
+
                         next = mypack::f;
                     end
             mypack::ai0 :  begin // AI0
@@ -200,6 +219,25 @@ module ControlStore(
                         rf_ren          = 0;
                         rf_addr_sel     = r[14:10];
                         alu_func        = 1;
+                        ram_wen         = 0;
+
+                        next = mypack::n;
+                    end
+            mypack::ai3 :  begin // AI3
+                        pc_bus_en       = 0;
+                        ALU_bus_en      = 0;
+                        immgen_bus_en   = 0;
+                        rf_bus_en       = 1;
+                        rd_bus_en       = 0;
+                        pc_en           = 0;
+                        a_en            = 1;
+                        b_en            = 0;
+                        ir_en           = 0;
+                        wd_en           = 0;
+                        rf_wen          = 0;
+                        rf_ren          = 1;
+                        rf_addr_sel     = r[4:0];
+                        alu_func        = 0;
                         ram_wen         = 0;
 
                         next = mypack::f;
@@ -371,6 +409,63 @@ module ControlStore(
                         rf_ren          = 0;
                         rf_addr_sel     = r[4:0];
                         alu_func        = 0;
+                        ram_wen         = 0;
+
+                        next = mypack::n;
+                    end
+            mypack::jr1 :  begin // A0
+                        pc_bus_en       = 0;
+                        ALU_bus_en      = 0;
+                        immgen_bus_en   = 0;
+                        rf_bus_en       = 1;
+                        rd_bus_en       = 0;
+                        pc_en           = 0;
+                        a_en            = 1;
+                        b_en            = 0;
+                        ir_en           = 0;
+                        wd_en           = 0;
+                        rf_wen          = 0;
+                        rf_ren          = 1;
+                        rf_addr_sel     = r[4:0];
+                        alu_func        = 0;
+                        ram_wen         = 0;
+
+                        next = mypack::n;
+                    end
+            mypack::jr2 :  begin // A1
+                        pc_bus_en       = 0;
+                        ALU_bus_en      = 0;
+                        immgen_bus_en   = 0;
+                        rf_bus_en       = 1;
+                        rd_bus_en       = 0;
+                        pc_en           = 0;
+                        a_en            = 0;
+                        b_en            = 1;
+                        ir_en           = 0;
+                        wd_en           = 0;
+                        rf_wen          = 0;
+                        rf_ren          = 1;
+                        rf_addr_sel     = 5'b0;
+                        alu_func        = 0;
+                        ram_wen         = 0;
+
+                        next =mypack::n;
+                    end
+            mypack::jr3 :  begin // A2
+                        pc_bus_en       = 0;
+                        ALU_bus_en      = 1;
+                        immgen_bus_en   = 0;
+                        rf_bus_en       = 1;
+                        rd_bus_en       = 0;
+                        pc_en           = 0;
+                        a_en            = 0;
+                        b_en            = 0;
+                        ir_en           = 1;
+                        wd_en           = 0;
+                        rf_wen          = 1;
+                        rf_ren          = 0;
+                        rf_addr_sel     = r[4:0];
+                        alu_func        = 1;
                         ram_wen         = 0;
 
                         next = mypack::f;
