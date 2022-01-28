@@ -26,7 +26,7 @@ input clk,
     input rf_wen,
     input rf_ren,
     output logic [31:0] data_out,
-    input [1:0] addr
+    input [3:0] addr
     );
     
     logic [3:0][31:0] RF_data = {32'h0, 32'h5, 32'h6, 32'h0};

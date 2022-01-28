@@ -18,15 +18,11 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-package mypack;
-    typedef enum logic [5: 0] {f0, f1, f2, a0, a1, a2, a3, ai0, ai1, ai2, ai3, lw0, lw1, lw2, lw3, sw0, sw1, sw2, sw3, jr0, jr1, jr2, jr3, init} uState;
-    typedef enum {x0, rd, rs1, rs2} RF_reg;
-    typedef enum {n, d, f, b} uinst;
-endpackage
 
 module top_rv(
     input clk,
-    input rst
+    input rst,
+    output [15:0] LED
     );    
         
     logic UC_pc_bus_en;
@@ -137,5 +133,5 @@ module top_rv(
 //    always_ff @(posedge clk) begin
 //        if 
 //    end
-    
+    assign LED = databus[15:0];
 endmodule
